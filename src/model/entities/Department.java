@@ -4,24 +4,24 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class Department implements Serializable {
-    private int Id;
+    private Integer id;
     private String name;
 
     public Department(){
 
     }
 
-    public Department(int id, String name) {
-        Id = id;
+    public Department(Integer id, String name) {
+        this.id = id;
         this.name = name;
     }
 
-    public int getId() {
-        return Id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setId(int id) {
-        Id = id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -37,20 +37,19 @@ public class Department implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Department)) return false;
         Department that = (Department) o;
-        return getId() == that.getId() && Objects.equals(getName(), that.getName());
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName());
+        return Objects.hash(getId());
     }
 
     @Override
     public String toString() {
         return "Department{" +
-                "Id=" + Id +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
     }
-
 }
