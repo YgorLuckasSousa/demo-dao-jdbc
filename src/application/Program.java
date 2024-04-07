@@ -30,17 +30,21 @@ public class Program {
         for (Seller obj: list){
             System.out.println(obj);
         }
-        System.out.println("\n=== TEST 3: seller findByDepartment === ");
+        System.out.println("\n=== TEST 3: seller findAll === ");
         list = sellerDao.findAll();
 
         for (Seller obj: list){
             System.out.println(obj);
         }
-        System.out.println("\n=== TEST 4: seller findByDepartment === ");
+        System.out.println("\n=== TEST 4: seller insert === ");
         Seller newSeller = new Seller(null, "Jorge", "jorginho@gmail.com", new Date(), 2500.0, new Department(3, null));
         sellerDao.insert(newSeller);
         System.out.println("Insercted! New Id: " + newSeller.getId());
-
+        System.out.println("\n=== TEST 5: seller update === ");
+        seller = sellerDao.findById(1);
+        seller.setName("João");
+        sellerDao.update(seller);
+        System.out.println("Update completed! ");
 
 
 
